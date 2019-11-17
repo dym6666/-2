@@ -16,4 +16,37 @@
 云鬓花颜金步摇，芙蓉帐暖度春宵。 
 春宵苦短日高起，从此君王不早朝。
 三、编写思路
-首先先把诗歌转化成字符串的形式，然后给诗歌的结尾加上句号，为第七个字加上逗号，为每十四个字加上句号。为十四个字加回车，让诗歌成型。查询某个字的出现次数。
+1、首先先把诗歌转化成字符串的形式，然后给诗歌的结尾加上句号，为第七个字加上逗号，为每十四个字加上句号。为十四个字加回车，让诗歌成型。查询某个字的出现次数。
+2、代码解释
+     StringBuffer s =new StringBuffer("汉皇");
+     把是变成字符串
+        s.append('。');
+      给诗歌的结尾加上句号
+     for (int i = 7;i<s.length();i+=8) {
+         s.insert(i, "，");
+             }
+            从第八个字为第一个添加逗号的地方，而后每隔7位，即在第八位添加逗号
+      
+         for (int b = 15;b<s.length()-1;b+=16) {
+              s.insert(b, "。");
+             }
+        在诗歌的末句加一个句号，在每行第16个字符的地方添加句号 
+         for (int c = 16;c<s.length();c+=17) {
+             s.insert(c, "\n");
+             }
+        为诗歌排版，在第17个字符的地方换行 
+         StringBuffer s1 = new StringBuffer("重");
+        查寻字的出现次数
+        System.out.println(s);
+        System.out.println("出现次数为："+count(s.toString(),s1.toString()));
+    }
+   static int count(String n1,String n2) {
+     int sum = 0;
+     int index = -1;
+     while((index = n1.indexOf(n2,index))>-1) {
+      index += 1;
+      sum++;
+     }
+四、结果图
+
+五、心得
